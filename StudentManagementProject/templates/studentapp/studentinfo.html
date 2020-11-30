@@ -1,0 +1,17 @@
+<center><h2>Select list</h2></center>
+<table align="center" border="4">
+    <thead>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>Email</td>
+    <td>Department</td>
+    </thead>
+    {% for ele in data %}
+        <tr>
+            <td>{{ ele.firstname }}</td>
+            <td>{{ ele.lastname }}</td>
+            <td>{{ ele.email }}</td>
+            <td>{{ ele.department }}</td>
+        </tr>
+    {% endfor %}
+</table>
