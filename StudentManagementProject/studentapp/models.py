@@ -5,11 +5,11 @@ class Application(models.Model):
     registers = models.OneToOneField(RegisterModel, on_delete=models.CASCADE)
     marks_ssc = models.CharField(max_length=3)
     marks_inter = models.CharField(max_length=3)
+    is_selected = models.BooleanField(default=True)
 
 
 class Register(models.Model):
-    firstname = models.CharField(max_length=100)
-    lastname = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
     GENDER_CHOICES = [
         ('M', 'Male'),
         ('F', 'Female'),
@@ -27,6 +27,6 @@ class Register(models.Model):
     nationality = models.CharField(max_length=20)
     mobile = models.CharField(max_length=10)
     email = models.EmailField(max_length=100)
-    pic = models.ImageField(upload_to='images/')
+    pic = models.ImageField(blank= True, upload_to='images/')
 
 
