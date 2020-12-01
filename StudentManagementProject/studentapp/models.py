@@ -1,7 +1,13 @@
 from django.db import models
 
 
-class RegisterModel(models.Model):
+class Application(models.Model):
+    registers = models.OneToOneField(RegisterModel, on_delete=models.CASCADE)
+    marks_ssc = models.CharField(max_length=3)
+    marks_inter = models.CharField(max_length=3)
+
+
+class Register(models.Model):
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
     GENDER_CHOICES = [
@@ -24,7 +30,3 @@ class RegisterModel(models.Model):
     pic = models.ImageField(upload_to='images/')
 
 
-class ApplicationModel(models.Model):
-    registers = models.ForeignKey(RegisterModel, on_delete=models.CASCADE)
-    marks_ssc = models.CharField(max_length=3)
-    marks_inter = models.CharField(max_length=3)
