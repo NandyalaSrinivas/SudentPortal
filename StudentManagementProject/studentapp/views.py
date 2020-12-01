@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import RegisterModel, ApplicationModel
+from .models import Register, Application
 from .forms import RegisterForm, ApplicationForm
 from django.http import HttpResponse
 from django.urls import reverse
@@ -32,20 +32,20 @@ def application(request):
 
 
 def condidates(request):
-    data = RegisterModel.objects.all()
+    data = Register.objects.all()
     return render(request, "studentapp/condidatelist.html", {"data": data })
 
 
 def DepartmentWise(request):
-    data = RegisterModel.objects.values('department').distinct()
+    data = Register.objects.values('department').distinct()
     return render(request, "studentapp/DepartmentList.html", {"data": data})
 
 
 def SelectStudentList(request):
-    data = ApplicationModel.objects.filter(marks_inter__gte=900).values()
+    data = Application.objects.filter(marks_inter__gte=900).values()
     return render(request, "studentapp/studentlist.html", {"data": data})
 
 
 def details(request, department):
-    data = RegisterModel.objects.filter(department__contains=department).values()
+    data = Register.objects.filter(department__contains=department).values()
     return render(request, "studentapp/details.html", {"data": data })
