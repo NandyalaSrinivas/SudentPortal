@@ -47,5 +47,5 @@ def SelectStudentList(request):
 
 
 def details(request, department):
-    data = RegisterModel.objects.filter(department__contains='department').values()
+    data = RegisterModel.objects.filter(department__contains=department).values()
     return render(request, "studentapp/details.html", {"data": data })
