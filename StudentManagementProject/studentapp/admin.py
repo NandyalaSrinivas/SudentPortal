@@ -3,7 +3,7 @@ from .models import Register, Application
 from django.contrib.admin import SimpleListFilter
 
 
-class Selected(admin.SimpleListFilter):
+class Selected(SimpleListFilter):
     title = ('is_selected')
     parameter_name = 'selected'
 
