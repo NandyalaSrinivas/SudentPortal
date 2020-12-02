@@ -2,7 +2,6 @@ from django.db import models
 
 
 class Application(models.Model):
-    registers = models.OneToOneField(RegisterModel, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     marks_ssc = models.CharField(max_length=3)
@@ -11,6 +10,7 @@ class Application(models.Model):
 
 
 class Register(models.Model):
+    application = models.OneToOneField(Application, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     GENDER_CHOICES = [
         ('M', 'Male'),
