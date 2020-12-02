@@ -11,4 +11,4 @@ class RegisterForm(forms.ModelForm):
 class ApplicationForm(forms.ModelForm):
     class Meta:
         model = ApplicationModel
-        fields = "__all__"
+        fields = ["name", "email", "marks_ssc", "marks_inter"]
